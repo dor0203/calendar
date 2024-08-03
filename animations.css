@@ -1,0 +1,71 @@
+.fadeOutZoomOut {
+    animation: fadeOutZoomOut 0.2s forwards;
+}
+
+.fadeInZoomIn {
+    animation: fadeInZoomIn 0.2s forwards;
+}
+
+.fadeInZoomOut {
+    animation: fadeInZoomOut 0.2s forwards;
+}
+
+.fadeOutZoomIn {
+    animation: fadeOutZoomIn 0.2s forwards;
+}
+
+.slideOutLeftFadeOut {
+    animation: slideOutLeft 0.2s forwards, fadeOut 0.2s forwards;
+}
+
+.slideOutRightFadeOut {
+    animation: slideOutRight 0.2s forwards, fadeOut 0.2s forwards;
+}
+
+.slideInRightFadeIn {
+    animation: slideInRight 0.2s forwards, fadeIn 0.2s forwards;
+}
+
+.slideInLeftFadeIn {
+    animation: slideInLeft 0.2s forwards, fadeIn 0.2s forwards;
+}
+
+@keyframes fadeInZoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOutZoomOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes fadeOutZoomIn {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(1.2); }
+}
+
+@keyframes fadeInZoomOut {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
