@@ -2,11 +2,29 @@ export class Menu {
     generateMenu() {}
     generateTitle() {}
 }
+
+export class TaskMenu extends Menu {
+    constructor() {
+        super();
+    }
+
+    generateMenu() {
+        const menuContainer = document.createElement('div');
+        menuContainer.textContent = "unimplemented task manager";
+        return menuContainer;
+    }
+
+    generateTitle() {
+        const titleContainer = document.createElement('div');
+        titleContainer.textContent = "unimplemented";
+        return titleContainer
+    }
+}
+
 export class DayMenu extends Menu {
-    constructor(select) {
+    constructor() {
         super();
         this.dayInWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-        this.select = select;
     }
 
     generateMenu(selectedDate) {
@@ -62,7 +80,8 @@ export class DayMenu extends Menu {
                 dateButton.classList.add('today');
             }
             dateButton.textContent = date.getDate();
-            dateButton.addEventListener('click', () => this.select(date));
+            dateButton.setAttribute('date-data', date.toDateString());
+            // dateButton.addEventListener('click', () => this.select(date));
             dateContainer.appendChild(dateButton);
         }
         return dateContainer;
@@ -78,9 +97,8 @@ export class DayMenu extends Menu {
     }
 }    
 export class MonthMenu extends Menu {
-    constructor(select) { 
+    constructor() { 
         super();
-        this.select = select;
     }
 
     generateMenu(selectedDate) {
@@ -107,7 +125,7 @@ export class MonthMenu extends Menu {
                 monthButton.classList.add('current-month');
             }
             monthButton.textContent = date.toLocaleString('default',{month: 'short'});
-            monthButton.addEventListener('click', () => this.select(date));
+            monthButton.setAttribute('date-data', date.toDateString());
             monthButtonContainer.appendChild(monthButton);
         }
         const menuContainer = document.createElement('div');
@@ -126,9 +144,8 @@ export class MonthMenu extends Menu {
     }
 }
 export class YearMenu extends Menu {
-    constructor(select) {
+    constructor() {
         super();
-        this.select = select;
     }
 
     generateMenu(selectedDate) {
@@ -154,7 +171,7 @@ export class YearMenu extends Menu {
                 yearElement.classList.add('current-year');
             }
             yearElement.textContent = date.getFullYear();
-            yearElement.addEventListener('click', () => this.select(date));
+            yearElement.setAttribute('date-data', date.toDateString());
             yearContainer.appendChild(yearElement);
         }
         const menuContainer = document.createElement('div');
